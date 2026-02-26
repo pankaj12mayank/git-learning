@@ -1,0 +1,249 @@
+# 🎯 Day 2 Objective
+
+By end of today you will understand:
+
+* What is a branch?
+* Why branches are needed?
+* How to create branch?
+* How to switch branch?
+* How to merge branch?
+* What is merge conflict?
+* How this applies in real project delivery?
+
+---
+
+# 🧠 1️⃣ What Is a Branch?
+
+A branch is:
+
+> A parallel version of your project.
+
+Default branch is usually:
+
+* `main` (modern default)
+* or `master` (older default)
+
+Check yours:
+
+```
+git branch
+```
+
+Current branch will have `*` symbol.
+
+---
+
+# 🏗 Why Branching Is Needed?
+
+In real project:
+
+* One team works on new feature
+* One team fixes production bug
+* One team prepares release
+
+If everyone works in same line → chaos.
+
+Branching solves that.
+
+---
+
+# 🔀 Visual Understanding
+
+```
+main
+  |
+  |--- commit A
+  |--- commit B
+  |
+  └── feature-login
+          |
+          └── commit C
+```
+
+Branches allow parallel development safely.
+
+---
+
+# 🧪 Practical Now
+
+## Step 1 – Check Current Branch
+
+```
+git branch
+```
+
+You’ll see:
+
+```
+* main
+```
+
+---
+
+## Step 2 – Create New Branch
+
+```
+git branch feature1
+```
+
+Check again:
+
+```
+git branch
+```
+
+You’ll see:
+
+```
+* main
+  feature1
+```
+
+Branch created but not switched.
+
+---
+
+## Step 3 – Switch to Branch
+
+```
+git checkout feature1
+```
+
+Now check:
+
+```
+git branch
+```
+
+You’ll see:
+
+```
+main
+* feature1
+```
+
+Now you're working inside feature1 branch.
+
+---
+
+# 🧪 Step 4 – Make Changes in feature1
+
+Add a new line:
+
+```
+echo Feature work >> project.txt
+```
+
+Add & commit:
+
+```
+git add project.txt
+git commit -m "Feature1 changes"
+```
+
+Now feature1 branch has one extra commit.
+
+---
+
+# 🔄 Step 5 – Switch Back to main
+
+```
+git checkout main
+```
+
+Now open `project.txt`.
+
+You will NOT see "Feature work".
+
+Why?
+
+Because that commit exists only in feature1 branch.
+
+---
+
+# 🔗 Step 6 – Merge feature1 into main
+
+```
+git merge feature1
+```
+
+Now main branch gets feature1 changes.
+
+Check:
+
+```
+git log --oneline --graph
+```
+
+You’ll see merged history.
+
+---
+
+# ⚠️ What Is Merge Conflict?
+
+Conflict happens when:
+
+Same line edited in two branches.
+
+Example:
+
+Branch main:
+
+```
+Login API v1
+```
+
+Branch feature:
+
+```
+Login API updated
+```
+
+Git doesn't know which is correct → conflict.
+
+We’ll simulate conflict tomorrow.
+
+---
+
+# 🎯 PM-Level Understanding (Very Important)
+
+In real projects:
+
+Common branches:
+
+| Branch    | Purpose               |
+| --------- | --------------------- |
+| main      | Production-ready code |
+| develop   | Integration branch    |
+| feature/* | New features          |
+| hotfix/*  | Production fixes      |
+| release/* | Release preparation   |
+
+This is called GitFlow model.
+
+We’ll study that on Day 4–5.
+
+---
+
+# 🧠 Key Governance Insight for You
+
+As PM, you must ensure:
+
+✔ No direct commits to main
+✔ Feature branches mandatory
+✔ Code review before merge
+✔ CI pipeline passes before merge
+
+Branching = Delivery control mechanism.
+
+---
+
+# 🧩 Homework
+
+1. Create new branch: `feature2`
+2. Make one commit
+3. Switch back to main
+4. Merge feature2
+5. Check `git log --graph`
+
+---

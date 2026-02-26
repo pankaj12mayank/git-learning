@@ -1,0 +1,254 @@
+# 🚀 15-Day Structured Plan (Re-confirming)
+
+### Phase 1 – Git Foundation (Days 1–3)
+
+### Phase 2 – GitHub (Days 4–7)
+
+### Phase 3 – GitLab (Days 8–12)
+
+### Phase 4 – PM-Level Advanced Governance (Days 13–15)
+
+---
+
+# ✅ DAY 1 – Understanding Git from Zero (Concept + Practice)
+
+Today is **pure foundation**.
+No GitHub. No GitLab. No panic.
+
+---
+
+# 🎯 Day 1 Learning Outcomes
+
+By end of today, you must clearly understand:
+
+1. What is Version Control?
+2. What problem Git solves?
+3. What is a Repository?
+4. What is Working Directory?
+5. What is Staging Area?
+6. What is Commit?
+7. How Git internally tracks versions?
+
+---
+
+# 🧠 1️⃣ What Is Version Control?
+
+Before Git existed:
+
+Developers used:
+
+```
+project_final_v1
+project_final_v2
+project_final_latest_final_REAL
+```
+
+Messy. No traceability.
+
+Git solves:
+
+* Track every change
+* Know who changed what
+* Rollback anytime
+* Work in parallel
+
+Git was created by Linus Torvalds to manage Linux kernel development.
+
+---
+
+# 🧠 2️⃣ What Is Git?
+
+Git is:
+
+> A distributed version control system.
+
+Distributed means:
+
+Every developer has full history locally.
+
+No dependency on server.
+
+---
+
+# 🧠 3️⃣ Core Architecture (Very Important)
+
+Git works in 3 layers:
+
+```
+Working Directory → Staging Area → Local Repository
+```
+
+### 🔹 Working Directory
+
+Where files exist normally.
+
+### 🔹 Staging Area
+
+Temporary holding area before commit.
+
+### 🔹 Local Repository
+
+Where commits are permanently stored.
+
+All this lives inside `.git` folder.
+
+---
+
+# 🧪 Now Practical (Fresh Start Properly)
+
+## Step 1 – Create Practice Folder
+
+Go to any simple location like:
+
+```
+C:\GitMastery
+```
+
+Open PowerShell there.
+
+---
+
+## Step 2 – Initialize Repository
+
+```
+git init
+```
+
+You created:
+
+```
+.git
+```
+
+This is Git database.
+
+---
+
+## Step 3 – Check Status
+
+```
+git status
+```
+
+You’ll see:
+
+```
+No commits yet
+```
+
+That means repository is empty.
+
+---
+
+## Step 4 – Create File
+
+```
+echo Version Control Learning > project.txt
+```
+
+Check:
+
+```
+git status
+```
+
+It shows:
+
+```
+Untracked files
+```
+
+Meaning:
+Git sees file but not tracking yet.
+
+---
+
+## Step 5 – Move to Staging
+
+```
+git add project.txt
+```
+
+Now check:
+
+```
+git status
+```
+
+It shows:
+
+```
+Changes to be committed
+```
+
+---
+
+## Step 6 – Commit
+
+```
+git commit -m "Initial commit"
+```
+
+Now check history:
+
+```
+git log --oneline
+```
+
+You created Version 1.
+
+---
+
+# 🔁 Step 7 – Create Version 2
+
+```
+echo Second line added >> project.txt
+git add project.txt
+git commit -m "Added second line"
+```
+
+Check:
+
+```
+git log --oneline
+```
+
+Now 2 versions exist.
+
+---
+
+# 🎯 Conceptual Clarity (Most Important)
+
+When you committed second time:
+
+Git did NOT overwrite file.
+
+It created a new snapshot.
+
+Older version still exists.
+
+---
+
+# 🧠 PM-Level Insight
+
+As a Project Manager, this gives you:
+
+✔ Audit trail
+✔ Change tracking
+✔ Root cause analysis support
+✔ Compliance documentation
+✔ Safe rollback
+
+---
+
+# 🧩 End of Day 1 Self-Check
+
+You should now clearly answer:
+
+* What is difference between add and commit?
+* Where does Git store history?
+* What happens if `.git` is deleted?
+* Why is Git distributed?
+
+---
+
