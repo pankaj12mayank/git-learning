@@ -1,7 +1,11 @@
 change 1
+<<<<<<< HEAD
 change 1
 <<<<<<< HEAD
 change 1 - conflict branch
 =======
 Change 2- Conflict 1
 >>>>>>> conflict-branch
+=======
+change 1
+>>>>>>> parent of 74194db (change line requirement and Day 3 and day 4)
