@@ -1,0 +1,249 @@
+**Day 3**, which is very powerful from a **Project Governance & Risk Control** perspective.
+
+Today = **Merge Conflicts + Reset + Revert + Rollback Strategy**
+
+This is where you move from beginner to controlled user.
+
+---
+
+# DAY 3 – Conflict Management & Safe Undo
+
+## 🎯 Today’s Objectives
+
+By end of today you will understand:
+
+* What is a merge conflict?
+* Why conflicts happen?
+* How to resolve conflict?
+* Difference between `reset` and `revert`
+* How to safely rollback changes
+* What a PM should allow vs not allow
+
+---
+
+# 🧨 1️⃣ What Is a Merge Conflict?
+
+Conflict happens when:
+
+Two branches modify the **same line** in the same file.
+
+Git cannot decide which change is correct.
+
+So it stops merge and asks you to resolve manually.
+
+---
+
+# 🧪 Let’s Simulate Conflict (Do This Step-by-Step)
+
+### Step 1 – Make sure you are on main
+
+```
+git checkout main
+```
+
+---
+
+### Step 2 – Create New Branch
+
+```
+git branch conflict-branch
+git checkout conflict-branch
+```
+
+---
+
+### Step 3 – Modify Same Line
+
+Open `project.txt`
+
+Change first line to:
+
+```
+Project Version 2 - Conflict Branch
+```
+
+Then:
+
+```
+git add project.txt
+git commit -m "Changed line in conflict branch"
+```
+
+---
+
+### Step 4 – Switch Back to main
+
+```
+git checkout main
+```
+
+Now change SAME line in `project.txt` to:
+
+```
+Project Version 2 - Main Branch
+```
+
+Then:
+
+```
+git add project.txt
+git commit -m "Changed line in main branch"
+```
+
+---
+
+### Step 5 – Try Merge
+
+```
+git merge conflict-branch
+```
+
+Now you should see:
+
+```
+CONFLICT (content): Merge conflict in project.txt
+Automatic merge failed
+```
+
+🔥 This is merge conflict.
+
+---
+
+# 🧠 What Git Does Internally
+
+It adds conflict markers inside file:
+
+```
+<<<<<<< HEAD
+Project Version 2 - Main Branch
+=======
+Project Version 2 - Conflict Branch
+>>>>>>> conflict-branch
+```
+
+Now YOU must decide which line to keep.
+
+---
+
+# 🛠 How To Resolve Conflict
+
+1. Edit file manually.
+2. Keep correct content.
+3. Remove conflict markers.
+4. Save file.
+5. Run:
+
+```
+git add project.txt
+git commit -m "Resolved merge conflict"
+```
+
+Conflict solved.
+
+---
+
+# 🎯 PM-Level Insight
+
+Conflict means:
+
+* Parallel work overlapped.
+* Communication gap.
+* Long-running branches.
+
+Good governance reduces conflicts.
+
+---
+
+# 🔥 2️⃣ Reset vs Revert (VERY IMPORTANT)
+
+This is where most people make mistakes.
+
+---
+
+# 🧨 git reset (Dangerous in Shared Repo)
+
+Command:
+
+```
+git reset --hard HEAD~1
+```
+
+Meaning:
+Delete last commit completely.
+
+⚠️ It rewrites history.
+
+Safe only when:
+
+* Working locally
+* Not pushed to shared repo
+
+---
+
+# 🛡 git revert (Safe for Teams)
+
+Command:
+
+```
+git revert <commit_id>
+```
+
+Meaning:
+Create new commit that undoes previous commit.
+
+✔ Safe for shared repo
+✔ Maintains audit trail
+✔ No history rewrite
+
+---
+
+# 🧠 PM Governance Rule
+
+In production branch:
+
+❌ Never allow `reset`
+✔ Always use `revert`
+
+Because audit trail must remain intact.
+
+---
+
+# 🔄 3️⃣ How To See Previous Commits
+
+```
+git log --oneline
+```
+
+To go back temporarily:
+
+```
+git checkout <commit_id>
+```
+
+This is called:
+Detached HEAD state.
+
+---
+
+# 🧩 Day 3 Summary
+
+Today you learned:
+
+✔ Conflict simulation
+✔ Manual conflict resolution
+✔ Reset vs Revert difference
+✔ Rollback governance
+✔ Audit-safe recovery
+
+---
+
+# 🚀 Tomorrow (Day 4)
+
+Now we move to:
+
+👉 Creating GitHub account
+👉 Creating remote repository
+👉 Connecting local repo to GitHub
+👉 First push
+👉 Understanding remote tracking
+
