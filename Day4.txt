@@ -1,0 +1,186 @@
+**Local Git** to **Remote Collaboration**.
+
+Today is a big milestone.
+
+# DAY 4 – GitHub Setup & First Push
+
+Today you will:
+
+* Create GitHub account
+* Create remote repository
+* Connect local repo to remote
+* Push code to GitHub
+* Understand remote tracking
+
+---
+
+# 🧠 Step 1 – What Is GitHub?
+
+GitHub is a cloud platform that hosts Git repositories.
+
+Think:
+
+Local Git = Your laptop
+GitHub = Cloud server for collaboration
+
+---
+
+# 🎯 Step 2 – Create GitHub Account
+
+Go to:
+
+[https://github.com](https://github.com)
+
+Create account (if not already created).
+
+After login, click:
+
+👉 **New Repository**
+
+---
+
+# 📦 Step 3 – Create New Repository on GitHub
+
+Fill:
+
+* Repository Name: `git-learning`
+* Public (for learning)
+* ❌ DO NOT initialize with README (important)
+
+Click **Create Repository**
+
+You’ll now see a page with commands like:
+
+```
+git remote add origin https://github.com/username/git-learning.git
+```
+
+Copy that URL.
+
+---
+
+# 🔗 Step 4 – Connect Local Repo to GitHub
+
+Go to your local project folder in PowerShell.
+
+Run:
+
+```
+git remote add origin https://github.com/username/git-learning.git
+```
+
+(Replace username properly)
+
+Now verify:
+
+```
+git remote -v
+```
+
+You should see origin URL.
+
+---
+
+# 🚀 Step 5 – Push Code to GitHub
+
+Now push your local main branch:
+
+```
+git push -u origin main
+```
+
+If your branch is `master`, use:
+
+```
+git push -u origin master
+```
+
+You may be asked to login via browser → approve it.
+
+After success:
+
+Refresh GitHub page.
+
+🎉 Your code is now online.
+
+---
+
+# 🧠 What Just Happened?
+
+* Local commits copied to remote
+* Branch linked to origin/main
+* Tracking relationship created
+
+`-u` means:
+
+Set upstream tracking branch.
+
+---
+
+# 🔍 Important Commands
+
+Check remote branches:
+
+```
+git branch -r
+```
+
+Check tracking:
+
+```
+git status
+```
+
+You’ll see:
+
+```
+Your branch is up to date with 'origin/main'
+```
+
+---
+
+# PM-Level Insight
+
+Now you understand:
+
+✔ Local vs Remote repo
+✔ Push mechanism
+✔ Branch tracking
+✔ Collaboration base
+
+In real project:
+
+Developers:
+
+* Push feature branches
+* Create Pull Requests
+* Code gets reviewed before merge
+
+That is tomorrow (Day 5).
+
+---
+
+# Common Errors
+
+If push fails with:
+
+```
+fatal: remote origin already exists
+```
+
+Run:
+
+```
+git remote remove origin
+```
+
+Then add again.
+
+---
+
+# 🧩 Homework Today
+
+1. Make one new commit locally.
+2. Push again.
+3. Check GitHub website to confirm change.
+
