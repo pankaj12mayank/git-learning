@@ -1,0 +1,235 @@
+Excellent 🚀 Pankaj — now we enter **real collaboration workflow**.
+
+Up to Day 4 you were pushing directly to main.
+From today, we behave like a **professional team environment**.
+
+---
+
+# 🚀 DAY 5 – Pull Requests (PR) & Collaboration Workflow
+
+Today you will learn:
+
+* Why direct push to main is dangerous
+* What is a Pull Request (PR)
+* Feature branch workflow
+* Code review process
+* Merge approval flow
+* PM governance control
+
+---
+
+# 🧠 1️⃣ What Is a Pull Request?
+
+A Pull Request (PR) is:
+
+> A request to merge your branch into another branch (usually main).
+
+It allows:
+
+* Code review
+* Discussion
+* CI validation
+* Approval process
+
+On GitHub, this is called **Pull Request**.
+
+---
+
+# 🎯 Why PR Is Important for PM?
+
+Without PR:
+
+* Anyone can break production
+* No audit trail
+* No review
+* No quality gate
+
+With PR:
+✔ Controlled merge
+✔ Approval required
+✔ CI must pass
+✔ Discussion recorded
+
+---
+
+# 🧪 Practical – Proper Workflow Simulation
+
+## Step 1 – Create New Feature Branch
+
+On local machine:
+
+```
+git checkout -b feature-login
+
+Delete branch if created by mistake
+---
+git branch -d <branch-name>
+```
+
+Now you are NOT on main.
+
+---
+
+## Step 2 – Make Changes
+
+Edit `project.txt`:
+
+Add:
+
+```
+Login feature added
+```
+
+Then:
+
+```
+git add project.txt
+git commit -m "Added login feature"
+```
+
+---
+
+## Step 3 – Push Feature Branch
+
+```
+git push origin feature-login
+```
+
+Now go to GitHub website.
+
+You’ll see:
+
+👉 “Compare & Pull Request”
+
+Click it.
+
+---
+
+## Step 4 – Create Pull Request
+
+You will see:
+
+Base branch: main
+Compare branch: feature-login
+
+Add title:
+
+```
+Feature: Login Implementation
+```
+
+Add description.
+
+Click:
+👉 Create Pull Request
+
+---
+
+# 🧠 What Happens Now?
+
+PR created but NOT merged.
+
+Someone must:
+
+* Review code
+* Approve
+* Merge
+
+---
+
+# 🔗 Step 5 – Merge PR
+
+Click:
+👉 Merge Pull Request
+👉 Confirm Merge
+
+Now feature-login branch merged into main.
+
+---
+
+# 🧹 Step 6 – Delete Feature Branch (Clean Practice)
+
+After merge:
+
+Delete branch on GitHub.
+
+Then locally:
+
+```
+git checkout main
+git pull
+git branch -d feature-login
+```
+
+---
+
+# 🧠 Real Project Workflow (Important for You)
+
+In enterprise projects:
+
+1. Dev creates feature branch
+2. Pushes branch
+3. Creates PR
+4. Reviewer reviews
+5. CI pipeline runs
+6. Approval given
+7. Merge allowed
+8. Branch deleted
+
+---
+
+# 🎯 PM Governance Control Points
+
+As PM you should ensure:
+
+✔ Direct push to main disabled
+✔ PR mandatory
+✔ At least 1 approval required
+✔ CI must pass before merge
+✔ Branch protection rules enabled
+
+Tomorrow we’ll configure branch protection rules.
+
+---
+
+# 🔥 Key Difference to Remember
+
+| Direct Push   | Pull Request        |
+| ------------- | ------------------- |
+| No review     | Review required     |
+| No discussion | Discussion recorded |
+| Risky         | Controlled          |
+| No governance | Full governance     |
+
+---
+
+# 🧩 Homework
+
+1. Create one more feature branch
+2. Create PR
+3. Merge it
+4. Delete branch
+5. Run:
+
+   ```
+   git log --oneline --graph
+   ```
+
+Observe branch merge structure.
+
+---
+
+# 🚀 Day 6 Preview
+
+Tomorrow we will learn:
+
+🔥 Branch Protection Rules
+🔥 Reviewers & Approval System
+🔥 GitHub Issues
+🔥 Project Boards (Kanban)
+
+Now we move from Developer Workflow → Delivery Governance.
+
+---
+
+Reply once PR successfully created and merged.
