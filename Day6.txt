@@ -1,0 +1,208 @@
+Excellent 👏 Pankaj — now we move into **Project Governance Mode**.
+
+Up to Day 5, you learned developer workflow.
+From Day 6 onward, you think like a **Project Manager controlling delivery via GitHub**.
+
+---
+
+# 🚀 DAY 6 – Branch Protection, Reviews, Issues & Boards
+
+Platform we’re using: GitHub
+
+---
+
+# 🎯 Today’s Objectives
+
+By end of today you will understand:
+
+* Branch Protection Rules
+* Mandatory Pull Request approvals
+* Preventing direct push to main
+* GitHub Issues
+* GitHub Project Board (Kanban view)
+* Governance best practices
+
+---
+
+# 🔐 1️⃣ Branch Protection Rules (VERY IMPORTANT)
+
+This is PM-level control.
+
+Without protection:
+Anyone can push directly to `main`.
+
+With protection:
+✔ PR mandatory
+✔ Approval required
+✔ CI must pass
+✔ Force push disabled
+
+---
+
+## 🧪 Configure Branch Protection (Do This)
+
+1. Go to your repository on GitHub
+2. Click **Settings**
+3. Click **Branches**
+4. Click **Add branch protection rule**
+
+In Branch name pattern:
+
+```
+main
+```
+
+Enable:
+
+✔ Require a pull request before merging
+✔ Require approvals (set 1)
+✔ Dismiss stale approvals when new commits are pushed
+✔ Require status checks to pass (optional for now)
+✔ Do not allow force pushes
+
+Click **Save changes**
+
+---
+
+# 🧠 What You Just Did
+
+You converted main into:
+
+> Controlled Production Branch
+
+Now direct push should fail.
+
+Test it locally:
+
+```
+git checkout main
+echo Test >> project.txt
+git add .
+git commit -m "Test direct push"
+git push
+```
+
+Push should be rejected.
+
+That’s governance working.
+
+---
+
+# 📝 2️⃣ GitHub Issues (Task Tracking)
+
+Issues = Work items.
+
+Go to:
+👉 Issues tab
+👉 Create new issue
+
+Example:
+
+Title:
+
+```
+Add Payment Module
+```
+
+Description:
+
+```
+Payment module required for release v1.2
+```
+
+Create Issue.
+
+---
+
+# 🎯 Why Issues Matter for PM?
+
+✔ Requirement traceability
+✔ Bug tracking
+✔ Sprint planning
+✔ Discussion record
+
+---
+
+# 📊 3️⃣ GitHub Projects (Kanban Board)
+
+Go to:
+👉 Projects
+👉 New Project
+👉 Board template
+
+You’ll see columns:
+
+* To Do
+* In Progress
+* Done
+
+Now link your Issue to board.
+
+Move card across columns.
+
+---
+
+# 🧠 Real-World Flow
+
+1. Create Issue
+2. Developer creates branch:
+
+   ```
+   feature/payment-123
+   ```
+3. Developer references issue in PR:
+
+   ```
+   Fixes #123
+   ```
+4. When PR merges → Issue auto closes
+
+This creates full traceability.
+
+---
+
+# 🎯 PM Governance Framework Using GitHub
+
+As PM you should ensure:
+
+✔ All work linked to Issues
+✔ No direct push to main
+✔ All merges via PR
+✔ Approvals required
+✔ Proper branch naming convention
+✔ Sprint board maintained
+
+---
+
+# 📌 Branch Naming Best Practice
+
+```
+feature/<feature-name>
+bugfix/<bug-id>
+hotfix/<production-fix>
+release/<version>
+```
+
+---
+
+# 🧩 Homework
+
+1. Enable branch protection
+2. Try direct push (confirm it fails)
+3. Create 2 issues
+4. Create project board
+5. Link issue to PR
+6. Merge via PR
+
+---
+
+# 🚀 Day 7 Preview
+
+Tomorrow we learn:
+
+🔥 GitHub Actions (CI/CD basics)
+🔥 Automated build pipeline
+🔥 What happens after merge
+🔥 Deployment flow concept
+🔥 DORA metrics overview
+
