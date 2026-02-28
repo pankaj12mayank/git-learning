@@ -206,6 +206,3 @@ Tomorrow we learn:
 🔥 Deployment flow concept
 🔥 DORA metrics overview
 
-Now we move into DevOps layer.
-
-Reply once branch protection tested successfully.
