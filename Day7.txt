@@ -1,0 +1,251 @@
+Excellent 🚀 Pankaj — now we enter **DevOps Automation Layer**.
+
+Up to Day 6 you controlled collaboration.
+Today you automate quality control.
+
+---
+
+# 🚀 DAY 7 – GitHub Actions (CI/CD Basics)
+
+Platform: GitHub
+Feature: **GitHub Actions**
+
+---
+
+# 🎯 Today’s Objectives
+
+By end of today you will understand:
+
+* What is CI?
+* What is CD?
+* What is a pipeline?
+* What is GitHub Actions?
+* How to create first workflow
+* How automation runs after PR/Push
+* How PM monitors build health
+
+---
+
+# 🧠 1️⃣ What Is CI/CD?
+
+### 🔹 CI (Continuous Integration)
+
+Every time code is pushed:
+
+* It builds
+* It runs tests
+* It validates quality
+
+Automatically.
+
+### 🔹 CD (Continuous Delivery / Deployment)
+
+After successful build:
+
+* Code is prepared for release
+* Or deployed automatically
+
+---
+
+# 🏗 What Is a Pipeline?
+
+Pipeline = Automated steps executed in sequence.
+
+Example:
+
+```
+Step 1: Checkout Code
+Step 2: Install Dependencies
+Step 3: Run Tests
+Step 4: Build Project
+Step 5: Deploy
+```
+
+---
+
+# ⚙️ 2️⃣ What Is GitHub Actions?
+
+GitHub Actions = Built-in CI/CD engine inside GitHub.
+
+It runs workflows defined in:
+
+```
+.github/workflows/
+```
+
+Using YAML file.
+
+---
+
+# 🧪 Let’s Create First Pipeline (Hands-On)
+
+## Step 1 – Create Workflow Folder
+
+In your local project:
+
+Create folder:
+
+```
+.github/workflows
+```
+
+Inside that create file:
+
+```
+ci.yml
+```
+
+Path should be:
+
+```
+.github/workflows/ci.yml
+```
+
+---
+
+## Step 2 – Add This Basic Workflow Code
+
+Paste this inside `ci.yml`:
+
+```yaml
+name: Basic CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run a simple command
+        run: echo "Pipeline is running successfully!"
+```
+
+Save file.
+
+---
+
+## Step 3 – Commit & Push
+
+```
+git add .
+git commit -m "Added basic CI pipeline"
+git push
+```
+
+---
+
+## Step 4 – See Pipeline Running
+
+Go to GitHub repo → Click **Actions** tab.
+
+You’ll see pipeline running.
+
+If green ✅ → success
+If red ❌ → failed
+
+---
+
+# 🧠 What Just Happened?
+
+After push:
+
+GitHub:
+
+* Detected workflow file
+* Triggered automation
+* Created virtual machine
+* Executed steps
+* Reported status
+
+---
+
+# 🎯 PM-Level Insight
+
+Now you can monitor:
+
+✔ Build failures
+✔ Merge readiness
+✔ Quality gate
+✔ Automation health
+
+In real projects:
+
+PR cannot merge unless pipeline is green.
+
+---
+
+# 🔐 Connect with Branch Protection
+
+Go to:
+
+Settings → Branches → Edit protection rule
+
+Enable:
+
+✔ Require status checks to pass before merging
+
+Select your pipeline.
+
+Now PR cannot merge unless CI passes.
+
+That’s enterprise-level governance.
+
+---
+
+# 📊 Important DevOps Metrics (High-Level)
+
+As PM you should understand:
+
+* Lead Time
+* Deployment Frequency
+* Change Failure Rate
+* Mean Time to Recovery (MTTR)
+
+These are called DORA metrics.
+
+We’ll deep dive later.
+
+---
+
+# 🧩 Homework
+
+1. Create CI workflow
+2. Push it
+3. Confirm pipeline runs
+4. Enable required status check
+5. Try creating PR and see pipeline trigger
+
+---
+
+# 🚀 Next Phase
+
+From tomorrow:
+
+We start **GitLab** platform learning.
+
+Platform: GitLab
+
+You’ll compare:
+
+GitHub vs GitLab
+CI differences
+Boards differences
+Enterprise controls
+
+---
+
+Reply once:
+
+✅ Pipeline ran successfully
+or
+❌ If any error occurred (paste error screenshot text).
