@@ -1,0 +1,120 @@
+Tumhare repo me 2 problem ek sath ho rhi h:
+
+1. Current branch properly create/checkout nahi hui
+2. Upstream tracking set nahi h
+
+Abhi ye commands exact sequence me chalao:
+
+```powershell
+git status
+```
+
+Agar output me bole:
+
+```powershell
+On branch master
+```
+
+to fir ye chalao:
+
+```powershell
+git branch --set-upstream-to=origin/master master
+git pull
+```
+
+---
+
+Lekin agar `git branch` blank aa rha h (jaise screenshot me lag rha), to iska matlab local branch hi nahi bani properly.
+
+Tab ye karo:
+
+## Step 1 — Remote se branches fetch karo
+
+```powershell
+git fetch origin
+```
+
+---
+
+## Step 2 — Remote branches check karo
+
+```powershell
+git branch -r
+```
+
+Output something like:
+
+```powershell
+origin/main
+```
+
+ya
+
+```powershell
+origin/master
+```
+
+---
+
+## Step 3 — Correct branch checkout karo
+
+Agar `origin/main` dikhe:
+
+```powershell
+git checkout -b main origin/main
+```
+
+Agar `origin/master` dikhe:
+
+```powershell
+git checkout -b master origin/master
+```
+
+---
+
+## Step 4 — Pull karo
+
+```powershell
+git pull
+```
+
+Done.
+
+---
+
+Tumne ye galti ki thi:
+
+```powershell
+git branch --set-upstream-to=origin/<mainh> main
+```
+
+`<mainh>` placeholder hota h, literally nahi likhte 😄
+
+Correct hota:
+
+```powershell
+git branch --set-upstream-to=origin/main main
+```
+
+ya
+
+```powershell
+git branch --set-upstream-to=origin/master master
+```
+
+---
+
+Quick reality check:
+
+* Modern repos mostly `main` use karte h
+* Old repos `master`
+* Tumhara repo probably empty ya improperly initialized state me h
+
+Agar ab bhi issue aaye to:
+
+```powershell
+git branch -a
+git status
+```
+
+ka output bhej do.
